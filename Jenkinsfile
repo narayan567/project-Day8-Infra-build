@@ -11,7 +11,7 @@ pipeline {
         string(name: 'VPC_CIDR', defaultValue: '10.0.0.0/16', description: 'VPC CIDR Block')
         string(name: 'SUBNET_CIDR', defaultValue: '10.0.1.0/24', description: 'Public Subnet CIDR Block')
         string(name: 'INSTANCE_TYPE', defaultValue: 't2.micro', description: 'EC2 instance type')
-        string(name: 'KEY_NAME', defaultValue: 'my-key', description: 'Name of the SSH Key Pair')
+        #string(name: 'KEY_NAME', defaultValue: 'my-key', description: 'Name of the SSH Key Pair')
     }
 
     environment {
@@ -33,7 +33,7 @@ pipeline {
                 -var="vpc_cidr=${VPC_CIDR}" \
                 -var="subnet_cidr=${SUBNET_CIDR}" \
                 -var="instance_type=${INSTANCE_TYPE}" \
-                -var="key_name=${KEY_NAME}"'''
+                #-var="key_name=${KEY_NAME}"'''
             }
         }
 
