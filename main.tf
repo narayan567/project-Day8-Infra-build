@@ -8,7 +8,10 @@ resource "aws_subnet" "sub1" {
   availability_zone       = "ap-southeast-2b"
   map_public_ip_on_launch = true
 }
-
+resource "aws_key_pair" "my_key" {
+  key_name   = "my-ec2-key"  # Name of the key pair
+  public_key = file("~/.ssh/id_rsa.pub")  # Path to your public key file
+}
 resource "aws_subnet" "sub2" {
   vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = "10.0.1.0/24"
